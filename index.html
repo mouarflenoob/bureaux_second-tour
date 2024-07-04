@@ -2677,6 +2677,15 @@
                   const geoProp = e.features[0].properties;
                   
                   const _bvStats = results.find(bureau => Number(geoProp.codeCommune) === bureau["Code commune"] && Number(geoProp.numeroBureauVote) === bureau["Code BV"]);
+                  if (_bvStats === undefined) {
+                    const description = `<b>Bureau : </b>n°${geoProp.numeroBureauVote} de ${geoProp.nomCommune} (${geoProp.codeCommune})<br>
+                                       <b>Circonscription : </b>${geoProp.nomCirconscription} de ${geoProp.nomDepartement} (${geoProp.codeDepartement})<br>
+                                       <br>
+                                       Pas de données...
+                                       `
+                    popup.setLngLat(coordinates).setHTML(description).addTo(map)
+                    return
+                  }
                   const bvStats = Object.keys(_bvStats)
                     // Removing NULL candidates from the default response 19 candidates 
                     .filter((key) =>_bvStats[key] != null )
@@ -2697,7 +2706,7 @@
                   let   candidatesStats = [];
                   for (let i = 1; i <= nbCandidates; ++i) {
                     let candidateStats = {}
-                    candidateStats.nom = bvStats["Nom candidat " + i] + " " + bvStats["Prénom candidat " + i];
+                    candidateStats.nom = bvStats["Prénom candidat " + i] + " " + bvStats["Nom candidat " + i];
                     candidateStats.nuance = bvStats["Nuance candidat " + i];
                     candidateStats.prcExpr = bvStats["% Voix/exprimés " + i];
                     candidateStats.prcInsc = bvStats["% Voix/inscrits " + i];
@@ -2723,7 +2732,7 @@
                     <thead>
                       <tr>
                         <th scope="col">Nuance</th>
-                        <th scope="col">Nom / Prénom</th>
+                        <th scope="col">Nom</th>
                         <th scope="col">%age/exprimés</th>
                         <th scope="col">%age/votants</th>
                         <th scope="col">%age/inscrits</th>
