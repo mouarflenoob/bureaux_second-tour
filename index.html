@@ -2744,6 +2744,14 @@
                   candidatesTableBody +
                   `
                         <tr>
+                            <th scope='row'>Nuls/Blancs</th>
+                            <td></td>
+                            <td></td>
+                            <td>${(parseFloat(bvStats["% Blancs/votants"]) + parseFloat(bvStats["% Nuls/votants"])).toPrecision(3)}%</td>
+                            <td>${(parseFloat(bvStats["% Blancs/inscrits"]) + parseFloat(bvStats["% Nuls/inscrits"])).toPrecision(3)}%</td>
+                            <td>${parseInt(bvStats["Blancs"]) + parseInt(bvStats["Nuls"]) }</td>
+                        </tr>
+                        <tr>
                             <th scope='row'>Abstention</th>
                             <td></td>
                             <td></td>
@@ -2752,12 +2760,12 @@
                             <td>${bvStats["Abstentions"]}</td>
                         </tr>
                         <tr>
-                            <th scope='row'>Nuls/Blancs</th>
+                            <th scope='row'>Inscrits</th>
                             <td></td>
                             <td></td>
-                            <td>${(parseFloat(bvStats["% Blancs/votants"]) + parseFloat(bvStats["% Nuls/votants"])).toPrecision(3)}%</td>
-                            <td>${(parseFloat(bvStats["% Blancs/inscrits"]) + parseFloat(bvStats["% Nuls/inscrits"])).toPrecision(3)}%</td>
-                            <td>${parseInt(bvStats["Blancs"]) + parseInt(bvStats["Nuls"]) }</td>
+                            <td></td>
+                            <td>100%</td>
+                            <td>${bvStats["Inscrits"]}</td>
                         </tr>
                     </tbody>
                   </table>
