@@ -52,7 +52,7 @@
             this._dom = dom
           }
           
-          const RESULTATS_URL = 'https://static.data.gouv.fr/resources/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-provisoires-du-1er-tour/20240701-155452/resultats-provisoires-par-bureau-de-votevmn.csv';
+          const RESULTATS_URL = 'https://static.data.gouv.fr/resources/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-1er-tour/20240710-171445/resultats-definitifs-par-bureau-de-vote.csv';
           fetch(RESULTATS_URL)
             .then(response => response.text())
             .then(text => {
