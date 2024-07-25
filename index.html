@@ -52,7 +52,7 @@
             this._dom = dom
           }
           
-          const RESULTATS_URL = 'https://static.data.gouv.fr/resources/elections-legislatives-des-30-juin-et-7-juillet-2024-liste-des-candidats-du-2nd-tour/20240705-115304/legislatives-2024-candidatures-france-entiere-tour-2-2024-07-05.csv';
+          const RESULTATS_URL = 'https://static.data.gouv.fr/resources/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-2nd-tour/20240710-170658/resultats-definitifs-par-bureau-de-vote.csv';
           fetch(RESULTATS_URL)
             .then(response => response.text())
             .then(text => {
